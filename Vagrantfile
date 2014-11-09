@@ -3,17 +3,17 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
-base_box="ubuntu/trusty64"
+base_box="cyplo/ubuntu-gnome-utopic-gui"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", path: "provision.sh"
 
-  config.vm.define "node1" do |box|
+  config.vm.define "devbox" do |box|
     box.vm.box = base_box
-  end
-
-  config.vm.define "node2" do |box|
-    box.vm.box = base_box
+    box.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.gui = true
+    end 
   end
 
 end
+
