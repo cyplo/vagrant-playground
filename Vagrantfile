@@ -11,6 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "server" do |box|
     box.vm.provision "shell", path: "provision_common.sh"
     box.vm.box = server_box
+    box.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.customize ["modifyvm", :id, "--memory", "512"]
+    end    
   end
 
   config.vm.define "devbox" do |box|
