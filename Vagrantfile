@@ -3,12 +3,17 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
-base_box="cyplo/ubuntu-gnome-utopic-gui"
+dev_box ="cyplo/ubuntu-gnome-utopic-gui"
+server_box = "chef/centos-7.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.vm.define "server" do |box|
+    box.vm.box = server_box
+  end
+
   config.vm.define "devbox" do |box|
-    box.vm.box = base_box
+    box.vm.box = dev_box
     box.vm.provision "shell", path: "provision.sh"
     box.vm.provider "virtualbox" do |virtualbox|
         virtualbox.gui = true
