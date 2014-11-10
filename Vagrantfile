@@ -3,8 +3,8 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
-dev_box ="NinjaHamster/CentOS6.5-gui-dev-base"
 server_box = "chef/centos-7.0"
+dev_box = server_box
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -20,6 +20,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     box.vm.provider "virtualbox" do |virtualbox|
         virtualbox.gui = true
+        virtualbox.customize ["modifyvm", :id, "--memory", "4096"]
+        virtualbox.customize ["modifyvm", :id, "--cpus", "4"]
+        virtualbox.customize ["modifyvm", :id, "--vram", "128"]
     end 
   end
 
