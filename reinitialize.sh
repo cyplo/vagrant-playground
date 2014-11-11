@@ -17,7 +17,7 @@ vagrant up
 
 #if the guest additions are in the same version - reinstall
 #only for gui box, as there we care about the video drivers
-vagrant vbguest devbox --force rebuild
+vagrant vbguest devbox --force --do rebuild
 
 # reboot to reload kernel with guest additions
 echo "REBOOTING"
