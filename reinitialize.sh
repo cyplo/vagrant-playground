@@ -1,8 +1,8 @@
 #!/bin/bash
-set -e
 echo "DESTROYING OLD MACHINES"
 vagrant destroy -f
 vagrant plugin uninstall vagrant-vbguest
+set -e
 echo "BOOTING UP NEW ONES"
 vagrant up
 echo "MACHINES BOOTED UP AND SOFTWARE INSTALLED"
