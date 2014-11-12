@@ -3,5 +3,5 @@ vagrant-playground
 
 * install virtualbox
 * install vagrant
-* ./reinitialize
+* ./reinitialize.sh 
 
